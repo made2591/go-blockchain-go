@@ -3,28 +3,14 @@ package main
 import (
 	"github.com/goadesign/goa"
 	"github.com/made2591/go-blockchain-go/app"
-	"github.com/gorilla/websocket"
-	"time"
 )
 
-var HTTP_PORT = 3001
-var P2P_PORT = 6001
-var INITIAL_PEERS = []
+var INITIAL_PEERS = []*app.GeAviationPeer{}
 var BLOCKCHAIN = append(app.GeAviationBlockCollection{}, getGenesisBlock())
 
 // BlockController implements the block resource.
 type BlockController struct {
 	*goa.Controller
-}
-
-func getGenesisBlock() (*app.GeAviationBlock) {
-	return &app.GeAviationBlock{
-		"My genesis block data",
-		"816534932c2b7154836da6afc367695e6337db8a921823784c14378abed4f7d7",
-		0,
-		"0",
-		time.Now(),
-	}
 }
 
 // NewBlockController creates a block controller.

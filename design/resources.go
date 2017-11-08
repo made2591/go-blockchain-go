@@ -5,6 +5,20 @@ import (
 	. "github.com/goadesign/goa/design/apidsl"
 )
 
+var _ = Resource("wss", func() {
+
+	BasePath("")
+
+	Action("wsn", func() {
+		Routing(
+			GET(""),
+		)
+		Description("Create web socket network.")
+		Response(OK)
+	})
+
+})
+
 var _ = Resource("block", func() {
 
 	DefaultMedia(Block)
